@@ -7,7 +7,15 @@ system        varchar(100),
 patient       varchar(1000),
 encounter     varchar(1000),
 code          varchar(100),
-description   varchar(255)
+description   varchar(255),
+type          varchar(100),
+category      varchar(100),
+reaction1     varchar(255),
+description1  varchar(1000),
+severity1     varchar(255),
+reaction2     varchar(255),
+description2  varchar(1000),
+severity2     varchar(255)
 );
 
 --HINT DISTRIBUTE_ON_RANDOM
@@ -154,7 +162,8 @@ healthcare_coverage	numeric
 
 --HINT DISTRIBUTE_ON_RANDOM
 create table @synthea_schema.procedures (
-"date"         date,
+start           date,
+stop            date,
 patient       varchar(1000),
 encounter     varchar(1000),
 code          varchar(100),
