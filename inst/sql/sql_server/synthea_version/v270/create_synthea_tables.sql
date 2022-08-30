@@ -106,6 +106,7 @@ reasondescription   varchar(255)
 
 --HINT DISTRIBUTE_ON_RANDOM
 create table @synthea_schema.observations (
+category      varchar(100),
 "date"         date,
 patient       varchar(1000),
 encounter     varchar(1000),
