@@ -3,6 +3,7 @@
 create table @synthea_schema.allergies (
 start         date,
 stop          date,
+system        varchar(100),
 patient       varchar(1000),
 encounter     varchar(1000),
 code          varchar(100),
