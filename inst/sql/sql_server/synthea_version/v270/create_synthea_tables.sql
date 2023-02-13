@@ -187,6 +187,8 @@ state varchar(100),
 zip varchar(100),
 lat numeric,
 lon numeric,
+encounters varchar(100),
+procedures varchar(100),
 utilization numeric
 );
 
