@@ -154,11 +154,13 @@ address       varchar(100),
 city					varchar(100),
 state					varchar(100),
 county		varchar(100),
+fips          varchar(100),
 zip						varchar(100),
 lat		numeric,
 lon		numeric,
 healthcare_expenses	numeric,
-healthcare_coverage	numeric
+healthcare_coverage	numeric,
+income        varchar(100)
 );
 
 --HINT DISTRIBUTE_ON_RANDOM
