@@ -11,7 +11,7 @@ WITH CTE_VOCAB_MAP AS (
                                                    c.VALID_START_DATE AS SOURCE_VALID_START_DATE, c.VALID_END_DATE AS SOURCE_VALID_END_DATE, c.INVALID_REASON AS SOURCE_INVALID_REASON,
                            c1.concept_id AS TARGET_CONCEPT_ID, c1.concept_name AS TARGET_CONCEPT_NAME, c1.VOCABULARY_ID AS TARGET_VOCABULARY_ID, c1.domain_id AS TARGET_DOMAIN_ID, c1.concept_class_id AS TARGET_CONCEPT_CLASS_ID,
                            c1.INVALID_REASON AS TARGET_INVALID_REASON, c1.standard_concept AS TARGET_STANDARD_CONCEPT
-       FROM @cdm_schema.CONCEPT C
+       FROM @cdm_schema.CONCEPT c
              JOIN @cdm_schema.CONCEPT_RELATIONSHIP CR
                         ON C.CONCEPT_ID = CR.CONCEPT_ID_1
                         AND CR.invalid_reason IS NULL
