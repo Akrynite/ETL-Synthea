@@ -13,7 +13,7 @@ WITH CTE_VOCAB_MAP AS (
                            c1.INVALID_REASON AS TARGET_INVALID_REASON, c1.standard_concept AS TARGET_STANDARD_CONCEPT
        FROM @cdm_schema.CONCEPT c
              JOIN @cdm_schema.CONCEPT_RELATIONSHIP CR
-                        ON C.CONCEPT_ID = CR.CONCEPT_ID_1
+                        ON c.CONCEPT_ID = CR.CONCEPT_ID_1
                         AND CR.invalid_reason IS NULL
                         AND lower(cr.relationship_id) = 'maps to'
               JOIN @cdm_schema.CONCEPT C1
