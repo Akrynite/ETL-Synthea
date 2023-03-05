@@ -125,6 +125,11 @@ FROM
 	SELECT * FROM @cdm_schema.OP_VISITS
 ) T1;
 
+SELECT create_distributed_table('synthea_omop.all_visits', 'patient');
+create index all_visits_patient_index on synthea_omop.all_visits (patient);
+create index person_person_source_value_index on synthea_omop.person (person_source_value);
+
+
 if object_id('@cdm_schema.IP_VISITS', 'U')  is not null drop table @cdm_schema.IP_VISITS;
 if object_id('@cdm_schema.ER_VISITS', 'U')  is not null drop table @cdm_schema.ER_VISITS;
 if object_id('@cdm_schema.OP_VISITS', 'U')  is not null drop table @cdm_schema.OP_VISITS;
