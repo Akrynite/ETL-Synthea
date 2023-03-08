@@ -22,7 +22,7 @@ condition_status_concept_id
 select
 row_number()over(order by p.person_id)     condition_occurrence_id,
 p.person_id                                person_id,
-srctostdvm.target_concept_id               condition_concept_id,
+0              condition_concept_id,
 c.start                                    condition_start_date,
 c.start                                    condition_start_datetime,
 c.stop                                     condition_end_date,
@@ -38,14 +38,14 @@ null                                       condition_status_source_value,
 0                                          condition_status_concept_id
 
 from @synthea_schema.conditions c
-join @cdm_schema.source_to_standard_vocab_map srctostdvm
+left join @cdm_schema.source_to_standard_vocab_map srctostdvm
   on srctostdvm.source_code             = c.code
  and srctostdvm.target_domain_id        = 'Condition'
  and srctostdvm.target_vocabulary_id    = 'SNOMED'
  and srctostdvm.source_vocabulary_id    = 'SNOMED'
  and srctostdvm.target_standard_concept = 'S'
  and srctostdvm.target_invalid_reason is null
-join @cdm_schema.source_to_source_vocab_map srctosrcvm
+left join @cdm_schema.source_to_source_vocab_map srctosrcvm
   on srctosrcvm.source_code             = c.code
  and srctosrcvm.source_vocabulary_id    = 'SNOMED'
  and srctosrcvm.source_domain_id        = 'Condition'
