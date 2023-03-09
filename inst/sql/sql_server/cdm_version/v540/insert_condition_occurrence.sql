@@ -22,7 +22,7 @@ condition_status_concept_id
 select
 row_number()over(order by p.person_id)     condition_occurrence_id,
 p.person_id                                person_id,
-0              condition_concept_id,
+srctostdvm.target_concept_id               condition_concept_id,
 c.start                                    condition_start_date,
 c.start                                    condition_start_datetime,
 c.stop                                     condition_end_date,
